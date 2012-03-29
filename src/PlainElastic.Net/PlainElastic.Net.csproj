@@ -83,6 +83,7 @@
     <Compile Include="Builders\Queries\ConstantScoreQuery.cs" />
     <Compile Include="Builders\Queries\Facets\FacetFilter.cs" />
     <Compile Include="Builders\Queries\Facets\Facets.cs" />
+    <Compile Include="Builders\Queries\Facets\FilterFacet.cs" />
     <Compile Include="Builders\Queries\Facets\TermsFacet.cs" />
     <Compile Include="Builders\Queries\FilteredQuery.cs" />
     <Compile Include="Builders\Queries\RangeBase.cs" />
