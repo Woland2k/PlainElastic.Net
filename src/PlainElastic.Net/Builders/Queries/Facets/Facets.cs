@@ -45,6 +45,11 @@ namespace PlainElastic.Net.Queries
             return true;
         }
 
+        /// <summary>
+        /// Applies the json template.
+        /// </summary>
+        /// <param name="body">The body.</param>
+        /// <returns></returns>
         protected override string ApplyJsonTemplate(string body)
         {
             return "'facets': {{ {0} }}".AltQuoteF(body);

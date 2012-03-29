@@ -25,11 +25,22 @@ namespace PlainElastic.Net.Queries
             return this;
         }
 
+        /// <summary>
+        /// Determines whether the filter has all the required information.
+        /// </summary>
+        /// <returns>
+        ///   <c>true</c> if it does; otherwise, <c>false</c>.
+        /// </returns>
         protected override bool HasRequiredParts()
         {
             return hasValues;
         }
 
+        /// <summary>
+        /// Filters the specified filter.
+        /// </summary>
+        /// <param name="filter">The filter.</param>
+        /// <returns></returns>
         public FilterFacet<T> Filter(Func<Filter<T>, Filter<T>> filter)
         {
             var result = RegisterJsonPartExpression(filter);
@@ -37,6 +48,11 @@ namespace PlainElastic.Net.Queries
             return this;
         }
 
+        /// <summary>
+        /// Applies the json template.
+        /// </summary>
+        /// <param name="body">The body.</param>
+        /// <returns></returns>
         protected override string ApplyJsonTemplate(string body)
         {
             return "{0}: {{ {1} }}".AltQuoteF(facetName, body);
