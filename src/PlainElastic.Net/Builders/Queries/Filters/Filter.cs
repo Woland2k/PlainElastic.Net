@@ -10,8 +10,6 @@ namespace PlainElastic.Net.Queries
     /// </summary>
     public class Filter<T> : QueryBase<Filter<T>>
     {
-
-
         /// <summary>
         /// A filter that matches documents using AND boolean operator on other queries.
         /// This filter is more performant then bool filter. 
@@ -77,9 +75,15 @@ namespace PlainElastic.Net.Queries
             return this;
         }
 
-
-        // http://www.elasticsearch.org/guide/reference/api/search/named-filters.html
-        //TODO: fquery
+        /// <summary>
+        /// The query element within the search request body allows to define a query using the Query DSL.
+        /// see: http://www.elasticsearch.org/guide/reference/query-dsl/bool-query.html
+        /// </summary>
+        public Filter<T> BoolQuery(Func<BoolQuery<T>, BoolQuery<T>> queries)
+        {
+            RegisterJsonPartExpression(queries);
+            return this;
+        }
 
         protected override bool HasRequiredParts()
         {
