@@ -76,10 +76,12 @@ namespace PlainElastic.Net.Queries
         }
 
         /// <summary>
-        /// The query element within the search request body allows to define a query using the Query DSL.
-        /// see: http://www.elasticsearch.org/guide/reference/query-dsl/bool-query.html
+        /// A filter that matches documents matching boolean combinations of other queries. 
+        /// Similar in concept to Boolean query, except that the clauses are other filters. 
+        /// Can be placed within queries that accept a filter.
+        /// see: http://www.elasticsearch.org/guide/reference/query-dsl/bool-filter.html
         /// </summary>
-        public Filter<T> BoolQuery(Func<BoolQuery<T>, BoolQuery<T>> queries)
+        public Filter<T> Bool(Func<BoolFilter<T>, BoolFilter<T>> queries)
         {
             RegisterJsonPartExpression(queries);
             return this;
